@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": "sfdf",
+      "text": "Learn Angular",
+      "date": "11/27/2022, 12:38:12 AM",
+      "reminder": false
+    },
+    {
+      "id": "fghfhg",
+      "text": "Buy Food",
+      "date": "11/27/2022, 12:38:12 AM",
+      "reminder": true
+    },
+    {
+      "id": "fghfgnbmbh",
+      "text": "Create new Angular component",
+      "date": "11/27/2022, 12:38:12 AM",
+      "reminder": false
+    }
+  ]
+}

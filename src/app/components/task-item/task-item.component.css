@@ -1,0 +1,12 @@
+.task {
+  background: #e5e5e5;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #838282;
+}
+
+.reminder {
+  border-left: 8px solid green;
+}
