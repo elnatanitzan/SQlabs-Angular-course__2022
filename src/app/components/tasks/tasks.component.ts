@@ -16,4 +16,18 @@ export class TasksComponent {
       .getTasks()
       .subscribe((tasks: Task[]) => (this.tasks = tasks));
   }
+
+  onToggleReminder(e: MouseEvent, task: Task): void {
+    task.reminder = !task.reminder;
+    this.tasksService.toggleTaskReminder(task).subscribe();
+  }
+
+  deleteTask(task: Task): void {
+    this.tasksService
+      .deleteTask(task)
+      .subscribe(
+        () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
+      );
+      
+  }
 }

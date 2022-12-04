@@ -1,4 +1,11 @@
-  <div [ngClass]=" { reminder: task.reminder } " class="task">
+<div [ngClass]="{ reminder: task.reminder }" class="task">
+  <div [ngStyle]="{ display: 'flex', justifyContent: 'space-between' }">
     <h3>{{ task.text }}</h3>
-    <p>{{ task.date }}</p>
+    <fa-icon
+      [ngStyle]="{ fontSize: '22px', color: 'red' }"
+      [icon]="faTrash"
+      (click)="deleteTask()"
+    ></fa-icon>
   </div>
+  <p>{{ task.date }}</p>
+</div>

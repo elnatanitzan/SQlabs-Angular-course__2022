@@ -1,3 +1,9 @@
 <div class="tasks-container">
-  <app-task-item *ngFor="let task of tasks" [task]="task"></app-task-item>
+  <app-task-item
+    *ngFor="let task of tasks"
+    [task]="task"
+    (dblclick)="onToggleReminder($event, task)"
+    (onDeleteTask)="deleteTask($event)"
+  >
+  </app-task-item>
 </div>

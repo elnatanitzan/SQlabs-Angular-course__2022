@@ -4,7 +4,7 @@
       "id": "sfdf",
       "text": "Learn Angular",
       "date": "11/27/2022, 12:38:12 AM",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": "fghfhg",
@@ -16,7 +16,7 @@
       "id": "fghfgnbmbh",
       "text": "Create new Angular component",
       "date": "11/27/2022, 12:38:12 AM",
-      "reminder": false
+      "reminder": true
     }
   ]
 }
