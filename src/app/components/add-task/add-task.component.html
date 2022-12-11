@@ -1,0 +1,12 @@
+<form class="form-add-task" (ngSubmit)="onSubmit($event)">
+  <div>
+    <input type="text" placeholder="Write your task here" />
+  </div>
+
+  <div>
+    <label for="reminder">Add reminder ?</label>
+    <input id="reminder" type="checkbox" />
+  </div>
+
+  <app-button type="submit" text="Create Task" color="#2d6ebf"></app-button>
+</form>

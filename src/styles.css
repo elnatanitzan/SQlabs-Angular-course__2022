@@ -34,3 +34,11 @@ button {
 button:active {
   box-shadow: 0 2px 4px #515151;
 }
+
+input {
+  border: 1px solid #cecece;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100%;
+}
