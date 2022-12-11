@@ -1,12 +1,25 @@
-<form class="form-add-task" (ngSubmit)="onSubmit($event)">
-  <div>
-    <input type="text" placeholder="Write your task here" />
-  </div>
+<form (ngSubmit)="onSubmit($event)">
+	<div class="form-input-text">
+		<input
+			type="text"
+			placeholder="Write your task here"
+			[(ngModel)]="text"
+			[ngModelOptions]="{ standalone: true }"
+		/>
+	</div>
 
-  <div>
-    <label for="reminder">Add reminder ?</label>
-    <input id="reminder" type="checkbox" />
-  </div>
+	<div class="form-input-checkbox">
+		<label [ngStyle]="{ whiteSpace: 'nowrap', fontSize: '20px' }" for="reminder"
+			>Add reminder ?</label
+		>
+		<input
+			[ngStyle]="{ width: '20px', height: '20px' }"
+			id="reminder"
+			type="checkbox"
+      [(ngModel)]="reminder"
+      [ngModelOptions]="{ standalone: true }"
+		/>
+	</div>
 
-  <app-button type="submit" text="Create Task" color="#2d6ebf"></app-button>
+	<app-button type="submit" text="Create Task" color="#2d6ebf"></app-button>
 </form>

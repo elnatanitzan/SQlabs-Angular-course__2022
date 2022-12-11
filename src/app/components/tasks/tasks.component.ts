@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter, Input } from "@angular/core";
 import { Task } from "../../../Task.interface";
 import { TasksService } from "../../services/tasks.service";
 
@@ -9,24 +9,16 @@ import { TasksService } from "../../services/tasks.service";
 })
 export class TasksComponent {
 	constructor(private tasksService: TasksService) {}
-	tasks: Task[] = [];
+	@Input() tasks!: Task[];
 
-	ngOnInit(): void {
-		this.tasksService
-			.getTasks()
-			.subscribe((tasks: Task[]) => (this.tasks = tasks));
-	}
+	@Output() _toggleReminder = new EventEmitter();
+	@Output() _deleteTask = new EventEmitter();
 
 	onToggleReminder(e: MouseEvent, task: Task): void {
-		task.reminder = !task.reminder;
-		this.tasksService.toggleTaskReminder(task).subscribe();
+		this._toggleReminder.emit(task)
 	}
 
 	deleteTask(task: Task): void {
-		this.tasksService
-			.deleteTask(task)
-			.subscribe(
-				() => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
-			);
+		this._deleteTask.emit(task)
 	}
 }

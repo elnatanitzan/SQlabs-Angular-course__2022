@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Task } from 'src/Task.interface';
 
 @Component({
   selector: 'app-add-task',
@@ -6,8 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent {
+  @Output() _addTask = new EventEmitter();
+
+
+  text: string = '';
+  reminder: boolean = false;
 
   onSubmit(e: SubmitEvent): void {
-    console.log('Submit')
+    const newTask: Task = {
+      id: Math.random().toString(36),
+      text: this.text.trim(),
+      date: new Date().toLocaleString(),
+      reminder: this.reminder
+    }
+
+    this._addTask.emit(newTask);
   }
 }

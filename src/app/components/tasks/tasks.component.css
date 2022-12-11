@@ -1,7 +1,7 @@
 .tasks-container {
   width: 600px;
   height: 75%;
-  margin: 100px auto;
+  margin: 10px auto;
   padding: 10px 20px;
   overflow-y: scroll;
 }
