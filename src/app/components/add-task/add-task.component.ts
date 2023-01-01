@@ -20,7 +20,6 @@ export class AddTaskComponent {
       date: new Date().toLocaleString(),
       reminder: this.reminder
     }
-
     this._addTask.emit(newTask);
   }
 }

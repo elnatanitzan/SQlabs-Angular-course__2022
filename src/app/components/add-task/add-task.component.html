@@ -16,10 +16,15 @@
 			[ngStyle]="{ width: '20px', height: '20px' }"
 			id="reminder"
 			type="checkbox"
-      [(ngModel)]="reminder"
-      [ngModelOptions]="{ standalone: true }"
+			[(ngModel)]="reminder"
+			[ngModelOptions]="{ standalone: true }"
 		/>
 	</div>
 
-	<app-button type="submit" text="Create Task" color="#2d6ebf"></app-button>
+	<app-button
+		type="submit"
+		text="Create Task"
+		color="#2d6ebf"
+		[isDisabled]="!text.trim()"
+	></app-button>
 </form>

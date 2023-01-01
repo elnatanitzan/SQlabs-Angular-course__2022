@@ -1,1 +1,7 @@
-<button [ngStyle]="{ background: color }">{{ text }}</button>
+<button
+	disabled="{{ isDisabled ? 'true' : '' }}"
+	[ngStyle]="{ background: color }"
+	[ngClass]="{ disabled: isDisabled }"
+>
+	{{ text }}
+</button>

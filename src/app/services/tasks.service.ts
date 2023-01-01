@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Task } from 'src/Task.interface';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    "Content-Type": "application/json",
+  }),
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -19,11 +24,15 @@ export class TasksService {
 
   toggleTaskReminder(task: Task): Observable<Task> {
     const url = `${this.mainUrl}/${task.id}`; 
-    return this.httpClient.put<Task>(url, task)
+    return this.httpClient.put<Task>(url, task);
   }
 
   deleteTask(task: Task): Observable<Task> {
     const url = `${this.mainUrl}/${task.id}`;
-    return this.httpClient.delete<Task>(url)
+    return this.httpClient.delete<Task>(url);
+  }
+
+  addNewTask(task: Task): Observable<Task> {
+    return this.httpClient.post<Task>(this.mainUrl, task, httpOptions);
   }
 }

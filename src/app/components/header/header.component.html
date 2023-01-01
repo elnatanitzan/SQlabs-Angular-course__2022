@@ -1,8 +1,15 @@
 <header>
-  <h1>Task Reminder</h1>
-  <div [ngStyle]="{display: 'flex', gap: '30px', alignItems: 'center'}">
-    <app-button text="Add Task"></app-button>
-    <div class="user">EN</div>
-  </div>
+	<h1>Task Reminder</h1>
+	<div [ngStyle]="{ display: 'flex', gap: '30px', alignItems: 'center' }">
+		<app-button
+			text="{{ isDisplayAddTaskComponent ? 'Close' : 'Add Task' }}"
+      color="{{ isDisplayAddTaskComponent ? '#cf2d2d' : ''}}"
+			(click)="toggleDisplayAddTaskComponent()"
+		></app-button>
+		<div class="user">EN</div>
+	</div>
 </header>
-<app-add-task (_addTask)="addTask($event)"></app-add-task>
+<!-- <app-add-task
+	*ngIf="isDisplayAddTaskComponent"
+	(_addTask)="addTask($event)"
+></app-add-task> -->
