@@ -22,6 +22,11 @@ export class TasksService {
     return this.httpClient.get<Task[]>(this.mainUrl);
   }
 
+  getTaskById(taskId: string): Observable<Task> {
+    const url = `${this.mainUrl}/${taskId}`;
+    return this.httpClient.get<Task>(url);
+  }
+
   toggleTaskReminder(task: Task): Observable<Task> {
     const url = `${this.mainUrl}/${task.id}`; 
     return this.httpClient.put<Task>(url, task);

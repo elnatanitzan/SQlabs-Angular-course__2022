@@ -1,0 +1,7 @@
+<div *ngIf="task">
+  <app-add-task [taskToEdit]="task" ></app-add-task>
+  <h1>Edit your task:</h1>
+  <div class="container">
+    <app-task-item [task]="task"></app-task-item>
+  </div>
+</div>

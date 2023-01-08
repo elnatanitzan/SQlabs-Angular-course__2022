@@ -23,7 +23,7 @@
 
 	<app-button
 		type="submit"
-		text="Create Task"
+		[text]="buttonText"
 		color="#2d6ebf"
 		[isDisabled]="!text.trim()"
 	></app-button>

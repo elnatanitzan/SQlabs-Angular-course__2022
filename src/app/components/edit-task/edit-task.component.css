@@ -1,0 +1,14 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+app-task-item {
+  margin-top: 100px;
+  width: 600px;
+}

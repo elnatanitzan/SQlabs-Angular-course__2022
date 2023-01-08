@@ -1,5 +1,5 @@
 <header>
-	<h1>Task Reminder</h1>
+	<h1 routerLink="/">Task Reminder</h1>
 	<div [ngStyle]="{ display: 'flex', gap: '30px', alignItems: 'center' }">
 		<app-button
 			text="{{ isDisplayAddTaskComponent ? 'Close' : 'Add Task' }}"
@@ -9,7 +9,4 @@
 		<div class="user">EN</div>
 	</div>
 </header>
-<!-- <app-add-task
-	*ngIf="isDisplayAddTaskComponent"
-	(_addTask)="addTask($event)"
-></app-add-task> -->
+

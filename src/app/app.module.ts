@@ -14,11 +14,17 @@ import { TaskItemComponent } from "./components/task-item/task-item.component";
 import { ButtonComponent } from "./components/button/button.component";
 import { AddTaskComponent } from "./components/add-task/add-task.component";
 import { AboutComponent } from "./components/about/about.component";
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
 
 const appRoutes: Routes = [
-	{ path: "", component: TasksComponent },
+	{ path: "", redirectTo: "tasks", pathMatch: "full" },
 	{ path: "about", component: AboutComponent },
+	{ path: "tasks", component: TasksComponent },
+	{ path: "tasks/edit-task/:id", component: EditTaskComponent },
+	{ path: "**", component: NotFoundComponent },
 ];
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -29,6 +35,8 @@ const appRoutes: Routes = [
 		ButtonComponent,
 		AddTaskComponent,
 		AboutComponent,
+  NotFoundComponent,
+  EditTaskComponent,
 	],
 	imports: [
 		BrowserModule,

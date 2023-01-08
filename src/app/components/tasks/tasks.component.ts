@@ -27,7 +27,7 @@ export class TasksComponent {
 	ngOnInit(): void {
 		this.tasksService
 			.getTasks()
-			.subscribe((tasks: Task[]) => (this.tasks = tasks));
+			.subscribe((tasks: Task[]) => (this.tasks = tasks.reverse()));
 	}
 
 	@Output() _toggleReminder = new EventEmitter();
@@ -53,7 +53,7 @@ export class TasksComponent {
 
 	addTask(task: Task): void {
 		this.tasksService.addNewTask(task).subscribe(() => {
-			this.tasks.push(task);
+			this.tasks.unshift(task);
 			this.uiService.toggleAddTask();
 		});
 	}

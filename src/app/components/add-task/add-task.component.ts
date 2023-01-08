@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { Task } from 'src/Task.interface';
 
 @Component({
@@ -8,10 +8,20 @@ import { Task } from 'src/Task.interface';
 })
 export class AddTaskComponent {
   @Output() _addTask = new EventEmitter();
+  @Input() taskToEdit?: Task;
 
 
   text: string = '';
   reminder: boolean = false;
+  buttonText = 'Create Task'
+
+  ngOnInit(): void {
+    if (this.taskToEdit) {
+      this.text = this.taskToEdit.text;
+      this.reminder = this.taskToEdit.reminder;
+      this.buttonText = 'Done'
+    }
+  }
 
   onSubmit(e: SubmitEvent): void {
     const newTask: Task = {
