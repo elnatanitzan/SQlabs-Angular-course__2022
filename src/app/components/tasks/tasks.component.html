@@ -2,12 +2,55 @@
 	*ngIf="isDisplayAddTaskComponent"
 	(_addTask)="addTask($event)"
 ></app-add-task>
+
+<form *ngIf="!isDisplayAddTaskComponent">
+	<input
+		type="search"
+		placeholder="Type a char to start searching"
+		(input)="onSearchTasks($event)"
+	/>
+
+	<div class="toggle-show-reminder-container">
+		<span
+			(click)="
+				this.isShowingOnlyReminderTasks = !this.isShowingOnlyReminderTasks
+			"
+			>Show only reminder ?</span
+		>
+		<input
+			id="toggle-show-reminder"
+			type="checkbox"
+			[(ngModel)]="isShowingOnlyReminderTasks"
+			[ngModelOptions]="{ standalone: true }"
+		/>
+		<label for="toggle-show-reminder"> </label>
+	</div>
+
+	<div class="sort-tasks-by-date">
+		<select
+			name="sort-tasks"
+			id="sort-tasks"
+			[(ngModel)]="sortTasksMode"
+			[ngModelOptions]="{ standalone: true }"
+		>
+			<option value="new">New tasks first</option>
+			<option value="old">Old tasks first</option>
+		</select>
+	</div>
+</form>
+
 <div class="tasks-container">
-  <app-task-item
-    *ngFor="let task of tasks"
-    [task]="task"
-    (dblclick)="onToggleReminder($event, task)"
-    (onDeleteTask)="deleteTask($event)"
-  >
-  </app-task-item>
+	<div *ngIf="!hasNoResults">
+		<app-task-item
+			*ngFor="let task of tasksToDisplay"
+			[task]="task"
+			(dblclick)="onToggleReminder($event, task)"
+			(onDeleteTask)="deleteTask($event)"
+		>
+		</app-task-item>
+	</div>
+
+	<h2 *ngIf="hasNoResults" [ngStyle]="{ color: 'red', textAlign: 'center' }">
+		No tasks Found
+	</h2>
 </div>

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { TasksService } from "src/app/services/tasks.service";
 import type { Task } from "../../../Task.interface";
 
@@ -13,19 +13,18 @@ export class EditTaskComponent {
 	taskId: string | null;
 
 	constructor(
-		private router: Router,
 		private tasksService: TasksService,
 		private activatedRoute: ActivatedRoute
 	) {
-    this.taskId = this.activatedRoute.snapshot.paramMap.get("id");
-    if (this.taskId != null) {
-      this.tasksService.getTaskById(this.taskId).subscribe((task) => {
-        this.task = task;
-      })
-    }
-  };
+		this.taskId = this.activatedRoute.snapshot.paramMap.get("id");
+		if (this.taskId != null) {
+			this.tasksService.getTaskById(this.taskId).subscribe((task) => {
+				this.task = task;
+			});
+		}
+	}
 
-  // onFinishEditTask(task: Task) {
-  //   this.tasksService.
-  // }
+	onFinishEdit(task: Task) {
+		this.tasksService.editTask(task).subscribe((task) => (this.task = task));
+	}
 }

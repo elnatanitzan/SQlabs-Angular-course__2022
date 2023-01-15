@@ -40,4 +40,9 @@ export class TasksService {
   addNewTask(task: Task): Observable<Task> {
     return this.httpClient.post<Task>(this.mainUrl, task, httpOptions);
   }
+
+  editTask(task: Task): Observable<Task> {
+    const url = `${this.mainUrl}/${task.id}`;
+    return this.httpClient.put<Task>(url, task);
+  }
 }

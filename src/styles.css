@@ -1,49 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", sans-serif;
+	overflow: hidden;
 }
 
 h3 {
-  margin: 0;
+	margin: 0;
 }
 
 p {
-  margin: 0;
+	margin: 0;
 }
 
 button {
-  border: none;
-  background: #000;
-  color: #fff;
-  padding: 12px;
-  font-size: 18px;
-  border-radius: 5px;
-  box-shadow: 0 4px 4px #515151;
-  cursor: pointer;
+	border: none;
+	background: #000;
+	color: #fff;
+	padding: 12px;
+	font-size: 18px;
+	border-radius: 5px;
+	box-shadow: 0 4px 4px #515151;
+	cursor: pointer;
+
+	--regular-font-size: 18px;
+}
+
+input,
+label,
+select,
+button {
+	font-size: var(--regular-font-size);
 }
 
 button:active {
-  box-shadow: 0 2px 4px #515151;
+	box-shadow: 0 2px 4px #515151;
 }
 
 button.disabled {
-  box-shadow: 0 4px 4px #515151;
-  opacity: 0.6;
+	box-shadow: 0 4px 4px #515151;
+	opacity: 0.6;
 }
 
-input {
-  border: 1px solid #cecece;
-  font-size: 20px;
-  padding: 10px;
-  border-radius: 20px;
-  width: 100%;
+input,
+select {
+	border: 1px solid #cecece;
+	padding: 10px;
+	border-radius: 20px;
+	width: 100%;
 }

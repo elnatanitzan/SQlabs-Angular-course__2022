@@ -10,9 +10,20 @@ import { Subscription } from "rxjs";
 	styleUrls: ["./tasks.component.css"],
 })
 export class TasksComponent {
+	@Output() _toggleReminder = new EventEmitter();
+	@Output() _deleteTask = new EventEmitter();
+
+	tasks: Task[] = [];
+	filteredTasks: Task[] = [];
+
+	sortTasksMode: "old" | "new" = "new";
+
 	subscription: Subscription;
+
 	isDisplayAddTaskComponent: boolean = false;
-	
+	isShowingOnlyReminderTasks: boolean = false;
+	hasNoResults: boolean = false;
+
 	constructor(
 		private tasksService: TasksService,
 		private uiService: UiService
@@ -22,16 +33,32 @@ export class TasksComponent {
 			.subscribe((value) => (this.isDisplayAddTaskComponent = value));
 	}
 
-	tasks: Task[] = [];
-
 	ngOnInit(): void {
 		this.tasksService
 			.getTasks()
 			.subscribe((tasks: Task[]) => (this.tasks = tasks.reverse()));
 	}
 
-	@Output() _toggleReminder = new EventEmitter();
-	@Output() _deleteTask = new EventEmitter();
+	get filteredTasksToDisplay(): Task[] {
+		if (this.filteredTasks.length) {
+			if (this.isShowingOnlyReminderTasks) {
+				return this.filteredTasks.filter((task) => task.reminder);
+			}
+			return this.filteredTasks;
+		}
+
+		if (this.isShowingOnlyReminderTasks) {
+			return this.tasks.filter((task) => task.reminder);
+		}
+		return this.tasks;
+	}
+
+	get tasksToDisplay(): Task[] {
+		if (this.sortTasksMode === "old") {
+			return this.filteredTasksToDisplay.reverse();
+		}
+		return this.filteredTasksToDisplay;
+	}
 
 	//#region HttpRequest:
 	onToggleReminder(e: MouseEvent, task: Task): void {
@@ -47,15 +74,29 @@ export class TasksComponent {
 			);
 	}
 
-	toggleDisplayAddTaskComponent() {
-		this.uiService.toggleAddTask();
-	}
-
 	addTask(task: Task): void {
 		this.tasksService.addNewTask(task).subscribe(() => {
 			this.tasks.unshift(task);
 			this.uiService.toggleAddTask();
 		});
+	}
+
+	toggleDisplayAddTaskComponent() {
+		this.uiService.toggleAddTask();
+	}
+
+	onSearchTasks(e: Event) {
+		const searchValue = (e.target as HTMLInputElement).value.toLowerCase();
+		if (searchValue) {
+			const searchResult = this.tasks.filter((task) =>
+				task.text.toLowerCase().startsWith(searchValue)
+			);
+			this.hasNoResults = searchResult.length ? false : true;
+			this.filteredTasks = searchResult;
+		} else {
+			this.hasNoResults = false;
+			this.filteredTasks = [];
+		}
 	}
 	//#endregion
 }

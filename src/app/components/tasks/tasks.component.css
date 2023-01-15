@@ -1,7 +1,76 @@
+form {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.toggle-show-reminder-container {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.toggle-show-reminder-container span {
+  cursor: pointer;
+}
+
+.toggle-show-reminder-container input {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.toggle-show-reminder-container label {
+  cursor: pointer;
+  width: 70px;
+  height: 40px;
+  background: grey;
+  display: block;
+  border-radius: 25px;
+  position: relative;
+}
+
+.toggle-show-reminder-container label::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  transition: .2s;
+}
+
+.toggle-show-reminder-container label:hover {
+  background: #545454;
+}
+
+.toggle-show-reminder-container input:checked + label {
+  background: #4949ef;
+}
+
+.toggle-show-reminder-container input:checked + label:hover {
+  background: #3737cd;
+}
+
+.toggle-show-reminder-container input:checked + label::after {
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
+}
+
+.toggle-show-reminder-container label:active::after {
+  width: 38px;
+}
+
+.sort-tasks-by-date {
+  width: 100%;
+}
+
 .tasks-container {
   width: 600px;
   height: 75%;
-  margin: 10px auto;
-  padding: 10px 20px;
+  margin: 0 auto;
   overflow-y: scroll;
 }
