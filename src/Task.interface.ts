@@ -3,4 +3,5 @@ export interface Task {
   text: string;
   date: string;
   reminder: boolean;
+  lastEdited: string;
 }

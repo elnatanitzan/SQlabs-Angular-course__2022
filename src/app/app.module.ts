@@ -13,16 +13,28 @@ import { TasksComponent } from "./components/tasks/tasks.component";
 import { TaskItemComponent } from "./components/task-item/task-item.component";
 import { ButtonComponent } from "./components/button/button.component";
 import { AddTaskComponent } from "./components/add-task/add-task.component";
-import { AboutComponent } from "./components/about/about.component";
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { EditTaskComponent } from './components/edit-task/edit-task.component';
+import { EditTaskComponent } from "./components/edit-task/edit-task.component";
+import { SortTasksComponent } from "./components/sort-tasks/sort-tasks.component";
+import { KababCasePipe } from "./pipes/kabab-case.pipe";
 
 const appRoutes: Routes = [
 	{ path: "", redirectTo: "tasks", pathMatch: "full" },
-	{ path: "about", component: AboutComponent },
+	{
+		path: "about",
+		loadComponent: () =>
+			import("./components/about/about.component").then(
+				(module) => module.AboutComponent
+			),
+	},
 	{ path: "tasks", component: TasksComponent },
 	{ path: "tasks/edit-task/:id", component: EditTaskComponent },
-	{ path: "**", component: NotFoundComponent },
+	{
+		path: "**",
+		loadComponent: () =>
+			import("./components/not-found/not-found.component").then(
+				(module) => module.NotFoundComponent
+			),
+	},
 ];
 
 @NgModule({
@@ -34,9 +46,9 @@ const appRoutes: Routes = [
 		TaskItemComponent,
 		ButtonComponent,
 		AddTaskComponent,
-		AboutComponent,
-  NotFoundComponent,
-  EditTaskComponent,
+		EditTaskComponent,
+		SortTasksComponent,
+		KababCasePipe,
 	],
 	imports: [
 		BrowserModule,

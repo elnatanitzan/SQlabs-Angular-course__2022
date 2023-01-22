@@ -13,6 +13,10 @@ export class TaskItemComponent {
   @Output() onDeleteTask = new EventEmitter();
   faTrash = faTrash;
   faEdit = faEdit;
+
+  get isEdited(): boolean {
+    return this.task.lastEdited !== this.task.date;
+  }
   
   deleteTask() {
     this.onDeleteTask.emit(this.task);

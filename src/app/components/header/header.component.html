@@ -1,12 +1,13 @@
 <header>
-	<h1 routerLink="/">Task Reminder</h1>
+	<h1 routerLink="/">{{ appTitle | kababCase }}</h1>
+	<h3>{{ liveClock | date : "h:mm:ss a"}}</h3>
 	<div [ngStyle]="{ display: 'flex', gap: '30px', alignItems: 'center' }">
 		<app-button
+			*ngIf="isInTasksRoute('/tasks')"
 			text="{{ isDisplayAddTaskComponent ? 'Close' : 'Add Task' }}"
-      color="{{ isDisplayAddTaskComponent ? '#cf2d2d' : ''}}"
+			color="{{ isDisplayAddTaskComponent ? '#cf2d2d' : '' }}"
 			(click)="toggleDisplayAddTaskComponent()"
 		></app-button>
 		<div class="user">EN</div>
 	</div>
 </header>
-

@@ -1,112 +1,39 @@
 {
   "tasks": [
     {
-      "id": "fghfhg",
-      "text": "Buy Food",
-      "date": "11/27/2022, 12:38:12 AM",
-      "reminder": true
-    },
-    {
-      "id": "fghfgnbmbh",
-      "text": "Create new Angular component",
-      "date": "11/27/2022, 12:38:12 AM",
-      "reminder": false
-    },
-    {
-      "id": "0.0li85yy8z7nn",
-      "text": "ADD NEW TASK 1111",
-      "date": "1/15/2023, 8:50:39 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.ztas7k15gr",
-      "text": "ADD task 2",
-      "date": "1/1/2023, 5:34:36 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.kkbuyg3u57j",
-      "text": "fgfgf",
-      "date": "1/1/2023, 5:47:01 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.hzmvh6cyawp",
-      "text": "fghfhfgh",
-      "date": "1/1/2023, 6:20:58 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.3zvyd6nswj7",
-      "text": "dgfdgfg",
-      "date": "1/1/2023, 7:25:57 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.bxsiwa47dna",
-      "text": "gfgfgf",
-      "date": "1/1/2023, 7:26:59 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.uns8x889w3p",
-      "text": "hghghg",
-      "date": "1/1/2023, 8:31:56 PM",
-      "reminder": true
-    },
-    {
       "id": "0.ciaf3zpb40s",
-      "text": "new task",
+      "text": "H",
       "date": "1/8/2023, 6:20:52 PM",
-      "reminder": true
+      "reminder": false,
+      "lastEdited": "1/22/2023, 5:46:28 PM"
     },
     {
       "id": "0.kepqq6t5ps8",
-      "text": "1",
+      "text": "G",
       "date": "1/15/2023, 6:37:03 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.tpmy2g1jnf",
-      "text": "gfgfgf",
-      "date": "1/8/2023, 6:25:19 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.gp31432bkh",
-      "text": "fbfngngn",
-      "date": "1/15/2023, 6:34:22 PM",
-      "reminder": true
-    },
-    {
-      "id": "0.23iedy9moqr",
-      "text": "gfbfb",
-      "date": "1/15/2023, 6:43:38 PM",
-      "reminder": false
-    },
-    {
-      "id": "0.r3jngf048n",
-      "text": "N",
-      "date": "1/15/2023, 6:54:29 PM",
-      "reminder": true
-    },
-    {
-      "id": "0.ngorcyrr1e",
-      "text": "gfgf",
-      "date": "1/15/2023, 8:24:46 PM",
-      "reminder": false
+      "reminder": true,
+      "lastEdited": "1/22/2023, 5:46:20 PM"
     },
     {
       "id": "0.z5wshwkvgpo",
-      "text": "fgdgdf",
+      "text": "B",
       "date": "1/15/2023, 8:27:58 PM",
-      "reminder": false
+      "reminder": false,
+      "lastEdited": "1/22/2023, 5:44:09 PM"
     },
     {
-      "id": "0.9nf0mkydw5",
-      "text": "New lesson 7",
-      "date": "1/15/2023, 8:42:55 PM",
-      "reminder": false
+      "id": "0.etfjalewcaj",
+      "text": "Angular 1",
+      "date": "1/22/2023, 6:08:20 PM",
+      "reminder": false,
+      "lastEdited": "1/22/2023, 6:09:31 PM"
+    },
+    {
+      "id": "0.jlwbyf5b5w",
+      "text": "Elnatea",
+      "date": "1/22/2023, 6:10:59 PM",
+      "reminder": true,
+      "lastEdited": "1/22/2023, 6:10:59 PM"
     }
   ]
 }

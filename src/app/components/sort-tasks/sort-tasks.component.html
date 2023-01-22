@@ -1,0 +1,38 @@
+<form>
+	<input
+		type="search"
+		placeholder="Type a char to start searching"
+		(input)="onSearchTasks($event)"
+	/>
+
+	<div class="toggle-show-reminder-container">
+		<span
+			(click)="
+				this.isShowingOnlyReminderTasks = !this.isShowingOnlyReminderTasks
+			"
+			>Show only reminder ?</span
+		>
+		<input
+			id="toggle-show-reminder"
+			type="checkbox"
+      (change)="onToggle()"
+			[(ngModel)]="isShowingOnlyReminderTasks"
+			[ngModelOptions]="{ standalone: true }"
+		/>
+		<label for="toggle-show-reminder"> </label>
+	</div>
+
+	<div class="sort-tasks-by-date">
+		<select
+			name="sort-tasks"
+			id="sort-tasks"
+      (change)="onSelect()"
+			[(ngModel)]="sortTasksMode"
+			[ngModelOptions]="{ standalone: true }"
+		>
+			<option value="new">New tasks first</option>
+			<option value="old">Old tasks first</option>
+			<option value="edit">Last edited first</option>
+		</select>
+	</div>
+</form>

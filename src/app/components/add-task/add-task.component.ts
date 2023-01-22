@@ -25,19 +25,22 @@ export class AddTaskComponent {
 
 	onSubmit(e: SubmitEvent): void {
 		if (!this.taskToEdit) {
+			const createDate = new Date().toLocaleString();
 			const newTask: Task = {
 				id: Math.random().toString(36),
 				text: this.text.trim(),
-				date: new Date().toLocaleString(),
+				date: createDate,
 				reminder: this.reminder,
+				lastEdited: createDate,
 			};
 			this._addTask.emit(newTask);
 		} else {
 			const editedTask: Task = {
 				id: this.taskToEdit.id,
 				text: this.text.trim(),
-				date: new Date().toLocaleString(),
+				date: this.taskToEdit.date,
 				reminder: this.reminder,
+				lastEdited: new Date().toLocaleString(),
 			};
 			this._onFinishEdit.emit(editedTask);
 		}

@@ -1,18 +1,21 @@
 <div [ngClass]="{ reminder: task.reminder }" class="task">
-  <div [ngStyle]="{ display: 'flex', justifyContent: 'space-between' }">
-    <h3>{{ task.text }}</h3>
-    <fa-icon
-      [ngStyle]="{ fontSize: '22px', color: '#cf2d2d' }"
-      [icon]="faTrash"
-      (click)="deleteTask()"
-    ></fa-icon>
-  </div>
-  <div [ngStyle]="{ display: 'flex', justifyContent: 'space-between' }">
-    <p>{{ task.date }}</p>
-    <fa-icon
-      [ngStyle]="{ fontSize: '22px' }"
-      [icon]="faEdit"
-      routerLink="/tasks/edit-task/{{task.id}}"
-    ></fa-icon>
-  </div>
+	<div [ngStyle]="{ display: 'flex', justifyContent: 'space-between' }">
+		<h3>{{ task.text }}</h3>
+		<fa-icon
+			[ngStyle]="{ fontSize: '22px', color: '#cf2d2d' }"
+			[icon]="faTrash"
+			(click)="deleteTask()"
+		></fa-icon>
+	</div>
+	<div [ngStyle]="{ display: 'flex', justifyContent: 'space-between' }">
+		<p>{{ task.date }}</p>
+		<p *ngIf="isEdited" [ngStyle]="{ color: '#4949ef' }">
+			Edit: {{ task.lastEdited }}
+		</p>
+		<fa-icon
+			[ngStyle]="{ fontSize: '22px' }"
+			[icon]="faEdit"
+			routerLink="/tasks/edit-task/{{ task.id }}"
+		></fa-icon>
+	</div>
 </div>

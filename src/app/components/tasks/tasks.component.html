@@ -3,41 +3,12 @@
 	(_addTask)="addTask($event)"
 ></app-add-task>
 
-<form *ngIf="!isDisplayAddTaskComponent">
-	<input
-		type="search"
-		placeholder="Type a char to start searching"
-		(input)="onSearchTasks($event)"
-	/>
-
-	<div class="toggle-show-reminder-container">
-		<span
-			(click)="
-				this.isShowingOnlyReminderTasks = !this.isShowingOnlyReminderTasks
-			"
-			>Show only reminder ?</span
-		>
-		<input
-			id="toggle-show-reminder"
-			type="checkbox"
-			[(ngModel)]="isShowingOnlyReminderTasks"
-			[ngModelOptions]="{ standalone: true }"
-		/>
-		<label for="toggle-show-reminder"> </label>
-	</div>
-
-	<div class="sort-tasks-by-date">
-		<select
-			name="sort-tasks"
-			id="sort-tasks"
-			[(ngModel)]="sortTasksMode"
-			[ngModelOptions]="{ standalone: true }"
-		>
-			<option value="new">New tasks first</option>
-			<option value="old">Old tasks first</option>
-		</select>
-	</div>
-</form>
+<app-sort-tasks
+	*ngIf="!isDisplayAddTaskComponent"
+	(_onSearchTasks)="onSearchTasks($event)"
+	(_onToggle)="onToggleShowOnlyReminder($event)"
+	(_onSelect)="onSelectOrderSorting($event)"
+></app-sort-tasks>
 
 <div class="tasks-container">
 	<div *ngIf="!hasNoResults">
